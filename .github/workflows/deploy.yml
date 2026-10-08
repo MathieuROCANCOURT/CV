@@ -2,47 +2,45 @@ name: Build & Deploy Site
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 permissions:
-  contents: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout your code
-      - name: Checkout code
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
 
-      # 2. Setup Node.js (v24 to avoid deprecation warnings)
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: "24"
-          cache: "npm"
+          node-version: 24
+          cache: npm
 
-      # 3. Install dependencies
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
+      - run: npm run build
 
-      # 4. Compile TypeScript to dist/
-      - name: Build TypeScript and Vite.js
-        run: npm run build
+      - uses: actions/configure-pages@v5
 
-      # 5. Deploy everything (HTML + dist) to GitHub Pages
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          force_orphan: true
-          keep_files: false
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: actions/deploy-pages@v4
