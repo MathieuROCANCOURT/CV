@@ -1,19 +1,55 @@
-name: Build Vue
-on: [push]
+name: Build & Deploy Site
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  build_vue:
+  build:
     runs-on: ubuntu-latest
-    name: Build Vue
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js '22.x'
-        uses: actions/setup-node@v2
+      # 1. Checkout your code
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      # 2. Setup Node.js (v24 to avoid deprecation warnings)
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
         with:
-          node-version: "22.x"
+          node-version: "24"
           cache: "npm"
-      - id: Build-Vue
-        uses: SerhiiKa/VuePagesAction@1.0.4
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Compile TypeScript to dist/
+      - name: Build TypeScript and Vite.js
+        run: npm run build
+
+      # 🛠️ CRITICAL: Force Git to track 'dist' for this deployment only
+      # This removes 'dist/' from .gitignore temporarily in the runner
+      - name: Force add dist folder
+        run: |
+          sed -i '/^dist\/$/d' .gitignore
+          git add -f dist/
+
+      # 7. Deploy everything (HTML + dist) to GitHub Pages
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          username: 'MathieuROCANCOURT'
-          reponame: 'CV'
-          token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          force_orphan: true
+          keep_files: false
