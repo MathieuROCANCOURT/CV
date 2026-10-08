@@ -6,8 +6,13 @@ const count = ref(0)
 
 <template>
   <header>
-    <img id="img-profile" src="./../../assets/kirito.jpg" alt="Profile" />
+    <h1>Concepteur développeur d'application</h1>
   </header>
+
+  <section style="display: inline-flex; align-items: center;">
+    <img id="img-profile" src="./../../assets/kirito.jpg" alt="Profile" />
+    <h2>Mathieu ROCANCOURT</h2>
+  </section>
 
   <section id="center">
     <div>
