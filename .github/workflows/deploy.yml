@@ -1,13 +1,13 @@
 name: Build & Deploy Site
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
+permissions:
+  contents: write
 
 concurrency:
   group: "pages"
@@ -37,19 +37,12 @@ jobs:
       - name: Build TypeScript and Vite.js
         run: npm run build
 
-      # 🛠️ CRITICAL: Force Git to track 'dist' for this deployment only
-      # This removes 'dist/' from .gitignore temporarily in the runner
-      - name: Force add dist folder
-        run: |
-          sed -i '/^dist\/$/d' .gitignore
-          git add -f dist/
-
-      # 7. Deploy everything (HTML + dist) to GitHub Pages
+      # 5. Deploy everything (HTML + dist) to GitHub Pages
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./dist
           force_orphan: true
           keep_files: false
