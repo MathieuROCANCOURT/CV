@@ -1,7 +1,7 @@
 :root {
     --text: #6b6375;
     --text-h: #08060d;
-    --bg: #fff;
+    --bg: linear-gradient(to right, gray, white), linear-gradient(to bottom, cyan, lightgreen);
     --border: #e5e4e7;
     --code-bg: #f4f3ec;
     --accent: #aa3bff;
@@ -19,6 +19,7 @@
     color-scheme: light dark;
     color: var(--text);
     background: var(--bg);
+    background-blend-mode: multiply;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
