@@ -1,0 +1,159 @@
+{
+  "nom": "Mathieu ROCANCOURT",
+  "titre": "Développeur Web / Logiciel / Full-stack",
+  "localisation": "Toulouse, France",
+  "contact": {
+    "telephone": "+33 7 88 90 52 75",
+    "email": "mathieu.rocancourt@outlook.fr",
+    "linkedin": "https://linkedin.com/in/mathieu-rocancourt/",
+    "github": "https://github.com/MathieuROCANCOURT"
+  },
+  "profil": "Ingénieur en informatique et systèmes, spécialisé en développement full-stack (web, IA/ML, systèmes embarqués). Rigoureux, autonome et orienté équipe, j'interviens sur l'ensemble de la chaîne applicative, de la conception à la mise en production.",
+  "competences": {
+    "langages": [
+      "Python",
+      "Java",
+      "C",
+      "C++",
+      "TypeScript",
+      "R"
+    ],
+    "web": [
+      "HTML",
+      "CSS",
+      "React",
+      "Tailwind CSS"
+    ],
+    "tests": [
+      "Cypress"
+    ],
+    "outils": [
+      "Git",
+      "GitHub",
+      "Linux",
+      "Windows",
+      "WSL"
+    ],
+    "conception": [
+      "Algorithmique",
+      "UML",
+      "SQL"
+    ],
+    "ia": [
+      "OpenCV",
+      "PyTorch",
+      "LLM"
+    ]
+  },
+  "langues": [
+    {
+      "langue": "Français",
+      "niveau": "Langue maternelle"
+    },
+    {
+      "langue": "Anglais",
+      "niveau": "B1"
+    }
+  ],
+  "formation": [
+    {
+      "etablissement": "ENSEA",
+      "diplome": "Diplôme d'ingénieur - Informatique et Systèmes",
+      "periode": "2021 - 2024"
+    },
+    {
+      "etablissement": "Université de Caen Normandie",
+      "diplome": "Licence - Mathématiques & Informatique",
+      "periode": "2018 - 2021"
+    }
+  ],
+  "certifications": [
+    "Label HF Management",
+    "Label Handimanagement",
+    "Web Development Fundamentals",
+    "Practical GitHub Project Management and Collaboration",
+    "Practical GitHub Code Search"
+  ],
+  "experiences_professionnelles": [
+    {
+      "poste": "Développeur d'applications (formation)",
+      "entreprise": "FMS – Entreprise Adaptée et Solidaire",
+      "localisation": "Toulouse",
+      "periode": "Juin 2026 - Présent",
+      "missions": [
+        "Pratiquer les langages Java et Python ainsi que l'algorithmique.",
+        "Concevoir des modélisations UML.",
+        "Développer des applications web connectées à des bases de données SQL.",
+        "Participer à des exercices projet."
+      ]
+    },
+    {
+      "poste": "Développeur Web TypeScript",
+      "entreprise": "Dassault Systèmes",
+      "localisation": "Vélizy-Villacoublay",
+      "periode": "Mars 2024 - Août 2024",
+      "missions": [
+        "Développer une application web pour automatiser la génération de rapports radiologiques.",
+        "Créer des prototypes et améliorer l'interface utilisateur.",
+        "Intégrer des outils internes.",
+        "Participer aux réunions de design.",
+        "Mettre en place des tests automatisés Cypress."
+      ],
+      "stack": [
+        "React",
+        "Tailwind CSS",
+        "TypeScript",
+        "Cypress"
+      ]
+    },
+    {
+      "poste": "Développeur Python",
+      "entreprise": "Lab-on-a-Chip – Université de Tallinn",
+      "localisation": "Tallinn, Estonie",
+      "periode": "Mai 2023 - Août 2023",
+      "missions": [
+        "Développer la partie software du projet.",
+        "Capturer des images de gouttelettes en flux cytométrique.",
+        "Optimiser le code existant.",
+        "Améliorer l'interface graphique.",
+        "Gérer la communication PC <-> Raspberry Pi 4 via eCAL.",
+        "Rédiger la documentation et livrer le projet."
+      ]
+    },
+    {
+      "poste": "Développeur Machine Learning",
+      "entreprise": "ETIS",
+      "localisation": "Cergy-Pontoise",
+      "periode": "Juillet 2022 - Août 2022",
+      "missions": [
+        "Découvrir les réseaux de neurones.",
+        "Entraîner des modèles sous WSL.",
+        "Visualiser les résultats avec R."
+      ]
+    }
+  ],
+  "experiences_extra_professionnelles": [
+    {
+      "poste": "Officiel de Table de Marque",
+      "organisation": "Fédération Française de BasketBall (FFBB)",
+      "periode": "Avril 2016 - Présent",
+      "description": "Collaboration avec les arbitres, maîtrise du règlement fédéral et participation à des compétitions nationales de haut niveau.",
+      "evenements": [
+        "Leaders Cup 2025",
+        "Playoffs 2024",
+        "Match des Champions 2022",
+        "Match des Champions 2023"
+      ]
+    }
+  ],
+  "soft_skills": [
+    "Travail d'équipe",
+    "Autodiscipline",
+    "Curiosité intellectuelle"
+  ],
+  "centres_interet": [
+    "Basket",
+    "Jeux vidéo",
+    "Échecs"
+  ]
+}
